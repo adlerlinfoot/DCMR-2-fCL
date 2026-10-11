@@ -45,17 +45,17 @@ def run_pipeline_steps():
     print("Plotting age distributions...")
     run(["python", "-m", "scripts.model.plot_age_distributions"])
 
-    print("Running SHMM-2 model...")
-    run(["python", "-m", "scripts.model.shmm2"])
+    print("Running DCMR-2 model...")
+    run(["python", "-m", "scripts.model.dcmr2"])
 
-    print("Evaluating SHMM-2...")
-    run(["python", "-m", "scripts.model.eval_shmm2"])
+    print("Evaluating DCMR-2...")
+    run(["python", "-m", "scripts.model.eval_dcmr2"])
 
 def manual_regime_prompt():
     ans = input("Manual CURRENT regime override? (Y/N): ").strip().upper()
     if ans == "Y":
-        r = input("Enter CURRENT regime (0,1,2,3): ").strip()
-        if r not in {"0", "1", "2", "3"}:
+        r = input("Enter CURRENT regime (0,1,2,3,4): ").strip()
+        if r not in {"0", "1", "2", "3", "4"}:
             raise ValueError("Invalid regime.")
         return int(r)
     return None

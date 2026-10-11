@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from scripts.model.shmm2 import SHMM2
+from scripts.model.dcmr2 import DCMR2
 
 # ------------------------------------------------------------
 # Paths
@@ -39,9 +39,9 @@ def compute_run_lengths(states):
 
 
 # ------------------------------------------------------------
-# Step 2: Simulate SHMM-2 forward
+# Step 2: Simulate DCMR-2 forward
 # ------------------------------------------------------------
-def simulate_shmm2(df, engine):
+def simulate_dcmr2(df, engine):
     preds = []
 
     s_tm2 = int(df.iloc[0]["state_t_minus_2"])
@@ -86,7 +86,7 @@ def persistence_distance(emp, pred):
 # Helper: build engine with full hyperparameter set
 # ------------------------------------------------------------
 def build_engine(A, alpha, baseline_scale=1.0, hazard_mult=None, conv_smooth=0.0):
-    engine = SHMM2(
+    engine = DCMR2(
         conviction_alpha=alpha,
         conviction_age_full=A,
         baseline_scale=baseline_scale,
@@ -104,7 +104,7 @@ def evaluate_params(df, emp_run_lengths, A, alpha,
         hazard_mult = [1.0] * n_states
 
     engine = build_engine(A, alpha, baseline_scale, hazard_mult, conv_smooth)
-    preds = simulate_shmm2(df, engine)
+    preds = simulate_dcmr2(df, engine)
     pred_run_lengths = compute_run_lengths(preds)
     score = persistence_distance(emp_run_lengths, pred_run_lengths)
     return score

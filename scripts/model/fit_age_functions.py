@@ -52,7 +52,8 @@ def fit_age_functions():
         for a in range(1, max_len + 1):
             S[a] = np.mean(lengths >= a)
 
-        # Hazard ratio f(a) = S(a+1) / S(a)
+        # Conditional survival ratio f(a) = S(a+1) / S(a), not exit hazard.
+        # Used as a clipped persistence-weight multiplier by DCMR2.
         f = np.zeros(max_len + 1)
         for a in range(1, max_len):
             if S[a] > 0:

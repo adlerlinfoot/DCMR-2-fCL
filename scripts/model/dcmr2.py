@@ -13,7 +13,13 @@ AGE_FUNCS_JSON = OUTPUTS_DIR / "age_functions.json"
 DATA_FINAL = PROJECT_ROOT / "data" / "final" / "CL_final.parquet"
 
 
-class SHMM2:
+class DCMR2:
+    """Second-order labeled-regime transitions adjusted by age and conviction.
+
+    Regimes are observed rule-based labels, not inferred hidden states.
+    Age factors deform persistence weights rather than directly specifying
+    a fitted duration distribution.
+    """
     def __init__(self,
                  transition_path: Path = TRANSITION_NPY,
                  age_funcs_path: Path = AGE_FUNCS_JSON,
@@ -86,14 +92,14 @@ class SHMM2:
 
         base_row = self.T[i, j, :].astype(float).copy()
 
-        # 1. GLOBAL BASELINE SCALE (NEW)
+        # Uniform positive scaling cancels when the row is normalized.
         base_row *= self.baseline_scale
 
         # 2. AGE EFFECT
         age_factor = self._get_age_factor(j, age)
         base_row[j] *= age_factor
 
-        # 3. REGIME-SPECIFIC HAZARD MULTIPLIER (NEW)
+        # Legacy hazard_mult scales the stay weight, not the exit hazard.
         base_row[j] *= self.hazard_mult[j]
 
         # 4. CONVICTION SMOOTHING (NEW)

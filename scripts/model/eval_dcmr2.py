@@ -2,7 +2,7 @@ import json
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from scripts.model.shmm2 import SHMM2
+from scripts.model.dcmr2 import DCMR2
 
 # ----------------------------------------------------------------------
 # Paths
@@ -15,8 +15,8 @@ DATA_FINAL = PROJECT_ROOT / "data" / "final" / "CL_final.parquet"
 CONVICTION_PARQUET = PROJECT_ROOT / "outputs" / "conviction_neutral.parquet"
 
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
-CONFUSION_CSV = OUTPUTS_DIR / "shmm2_confusion_matrix.csv"
-SUMMARY_JSON = OUTPUTS_DIR / "shmm2_loglik_summary.json"
+CONFUSION_CSV = OUTPUTS_DIR / "dcmr2_confusion_matrix.csv"
+SUMMARY_JSON = OUTPUTS_DIR / "dcmr2_loglik_summary.json"
 
 OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -34,7 +34,7 @@ DIRECTION = {
 # ----------------------------------------------------------------------
 
 
-def evaluate_shmm2():
+def evaluate_dcmr2():
     if not DATA_FINAL.exists():
         raise FileNotFoundError(f"Final dataset not found: {DATA_FINAL}")
     if not CONVICTION_PARQUET.exists():
@@ -54,7 +54,7 @@ def evaluate_shmm2():
     if missing:
         raise ValueError(f"Missing required columns: {missing}")
 
-    engine = SHMM2()
+    engine = DCMR2()
     n_states = engine.n_states
 
     confusion = np.zeros((n_states, n_states), dtype=int)
@@ -199,4 +199,4 @@ def evaluate_shmm2():
 # ----------------------------------------------------------------------
 
 if __name__ == "__main__":
-    evaluate_shmm2()
+    evaluate_dcmr2()

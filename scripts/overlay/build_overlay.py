@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import numpy as np
 from pathlib import Path
-from scripts.model.shmm2 import SHMM2
+from scripts.model.dcmr2 import DCMR2
 
 DATA_FINAL = Path("data/final/CL_final.parquet")
 CONVICTION_PARQUET = Path("outputs/conviction_neutral.parquet")
@@ -148,7 +148,7 @@ def compute_time_to_flip(remaining_cur, conviction, age_prev, E_prev):
 
 
 def build_overlay(manual_current=None):
-    engine = SHMM2()
+    engine = DCMR2()
     age_factors = load_age_functions()
 
     ts, row = load_latest_row_with_time()
