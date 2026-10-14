@@ -1,0 +1,74 @@
+{
+  "DCMR": {
+    "n": 3241,
+    "observed_flips": 329,
+    "accuracy": 0.8984881209503239,
+    "predicted_flips": 0,
+    "destination_accuracy_given_observed_flip": 0.6778115501519757,
+    "log_loss": 0.3875538052491733,
+    "multiclass_brier": 0.1770317449236535,
+    "flip_risk_roc_auc": 0.7431626599084806,
+    "flip_risk_average_precision": 0.241634252198274,
+    "change_brier": 0.08543638829205441,
+    "mean_predicted_flip_probability": 0.11359729784575921,
+    "actual_flip_rate": 0.10151187904967603
+  },
+  "second_order": {
+    "n": 3241,
+    "observed_flips": 329,
+    "accuracy": 0.8984881209503239,
+    "predicted_flips": 0,
+    "destination_accuracy_given_observed_flip": 0.6778115501519757,
+    "log_loss": 0.3878844924526061,
+    "multiclass_brier": 0.17674883105974884,
+    "flip_risk_roc_auc": 0.7009100796619794,
+    "flip_risk_average_precision": 0.2144477403530659,
+    "change_brier": 0.0852074813409013,
+    "mean_predicted_flip_probability": 0.1136205593590376,
+    "actual_flip_rate": 0.10151187904967603
+  },
+  "DCMR_minus_second_order": {
+    "log_loss": -0.00033068720343284915,
+    "multiclass_brier": 0.0002829138639046478,
+    "change_brier": 0.0002289069511531229,
+    "change_roc_auc": 0.04225258024650125,
+    "change_average_precision": 0.027186511845208094
+  },
+  "paired_day_bootstrap_95pct_intervals": {
+    "log_loss": [
+      -0.001388977401895949,
+      0.0007648483975794589
+    ],
+    "multiclass_brier": [
+      -0.0002670697296283419,
+      0.0008487957751488425
+    ],
+    "change_brier": [
+      -9.592251438313432e-05,
+      0.000570778478919428
+    ],
+    "change_roc_auc": [
+      0.02750683279528616,
+      0.058043855412347196
+    ],
+    "change_average_precision": [
+      0.0170941566908991,
+      0.03818314535960981
+    ]
+  },
+  "bootstrap_resamples": 2000,
+  "accepted_bootstrap_resamples": 2000,
+  "bootstrap_seed": 42,
+  "different_top_predictions": 0,
+  "training_rows": 98533,
+  "training_end": "2026-03-13 03:00:00",
+  "test_first_origin": "2026-03-16 00:00:00+00:00",
+  "test_last_target": "2026-10-14 17:00:00+00:00",
+  "excluded_non_hourly_pairs": 147,
+  "input_sha256": {
+    "training": "c23bfbdddc3b6e3f824d45cfd9c1dd53257ff0e583e77d6b4b8b5396905907ef",
+    "transitions": "43f4d9c346bb370e6b2d1cf474188421095667c3b9a64e5955f1a65b36b59d4d",
+    "age_functions": "761d88abd8dc729863e4f77b7ac30e6130fa49d3be8afcd017d65fd6aad164a8",
+    "yahoo_snapshot": "884d526c9c8881ba63883da56e2dda8e15187eb142abd02cbe7482c18a09d921"
+  }
+}

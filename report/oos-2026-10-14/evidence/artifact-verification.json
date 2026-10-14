@@ -1,0 +1,67 @@
+{
+  "original_artifact_fingerprints": [
+    {
+      "role": "data/final/CL_final.parquet",
+      "bytes": 5950749,
+      "sha256": "c23bfbdddc3b6e3f824d45cfd9c1dd53257ff0e583e77d6b4b8b5396905907ef"
+    },
+    {
+      "role": "data/intermediate/run_lengths_by_state.json",
+      "bytes": 101093,
+      "sha256": "725e25afee98b24a1dfc84814caaf5aeff7d5f22e5f5e5a6733ef1db019ae083"
+    },
+    {
+      "role": "outputs/transition_matrix.npy",
+      "bytes": 1128,
+      "sha256": "43f4d9c346bb370e6b2d1cf474188421095667c3b9a64e5955f1a65b36b59d4d"
+    },
+    {
+      "role": "outputs/age_functions.json",
+      "bytes": 14914,
+      "sha256": "761d88abd8dc729863e4f77b7ac30e6130fa49d3be8afcd017d65fd6aad164a8"
+    },
+    {
+      "role": "outputs/conviction_neutral.parquet",
+      "bytes": 596779,
+      "sha256": "18ce711fbb123a6bdadd80dcd9170ae1ba25d4bb0fbf2229da7e899b07227f26"
+    },
+    {
+      "role": "outputs/shmm2_loglik_summary.json",
+      "bytes": 388,
+      "sha256": "ea77f9af9db1a047fb9e1aa59eecd6d5668a4f44d216db09a58897673e71398d"
+    },
+    {
+      "role": "scripts/model/shmm2.py",
+      "bytes": 5016,
+      "sha256": "2eac5d7dac9200351b010005868ffadd9f230a7e44d9d1c2385d303a8acab361"
+    }
+  ],
+  "replayed_historical_summary": {
+    "avg_log_likelihood": -0.4515930541838923,
+    "avg_true_prob": 0.7865982907456576,
+    "min_true_prob": 0.0005088451774012362,
+    "max_true_prob": 0.9313682358117026,
+    "n_observations": 98533,
+    "next_state_accuracy": 0.87542118296594,
+    "tensor_flip_accuracy": 0.5560896130346232,
+    "next_regime_accuracy": 0.8149835820189043,
+    "next_direction_accuracy": 0.8357278176399829
+  },
+  "differences_from_stored_historical_summary": {
+    "avg_log_likelihood": 5.129230373768223e-14,
+    "avg_true_prob": 0.0,
+    "min_true_prob": 0.0,
+    "max_true_prob": 0.0,
+    "n_observations": 0.0,
+    "next_state_accuracy": 0.0,
+    "tensor_flip_accuracy": 0.0,
+    "next_regime_accuracy": 0.0,
+    "next_direction_accuracy": 0.0
+  },
+  "max_probability_difference_current_vs_original_engine": 0.0,
+  "notes": [
+    "Fingerprint records contain no source dataset observations.",
+    "Historical replay checks consistency, not historical out-of-sample validity.",
+    "Exact local inputs are required to repeat the recorded verification."
+  ]
+}

@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Private inputs and local exploratory runs. Tracked placeholder files remain.
+/data/
+/outputs/
+/research/
+/evaluation-private/
+*.parquet
+*.pkl
+*.npy
+yahoo_raw.csv
+predictions.csv
+original_overlay_oos.csv
+age_functions.json
+run_lengths_by_state.json

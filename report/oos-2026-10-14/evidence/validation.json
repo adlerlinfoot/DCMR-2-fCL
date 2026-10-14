@@ -1,0 +1,11 @@
+{
+  "portable_replay_max_metric_difference": 0.0,
+  "bootstrap_intervals_match": true,
+  "tests_passed": 4,
+  "tests": [
+    "causal_features_and_age",
+    "hourly_target_alignment_and_gap_exclusion",
+    "accuracy_measures_correctness",
+    "duplicate_timestamp_rejection"
+  ]
+}

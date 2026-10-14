@@ -7,6 +7,26 @@ explicitly labeled price regimes. It combines an empirical second-order
 transition tensor with age-dependent and conviction-dependent adjustments to
 the probability of remaining in the current regime.
 
+## Recorded out-of-sample comparison
+
+A [chronological evaluation on newer Yahoo Finance data](report/oos-2026-10-14/README.md)
+compares the recovered original model with its unadjusted second-order Markov
+tensor. Historical weights were frozen through March 13, 2026; evaluation covers
+3,241 one-hour forecasts from March 16–October 14, 2026, including 329 regime changes.
+
+The neutral-conviction DCMR configuration achieved transition-risk ROC AUC
+**0.7432 versus 0.7009** and average precision **0.2416 versus 0.2144** for the
+simple second-order baseline. A paired day-block bootstrap supports the ranking
+improvement within this sample. Next-state predictions and conditional
+transition-destination accuracy were identical; overall log loss and Brier
+score did not establish an improvement. The result concerns exit-risk ranking,
+not proven trading profitability or a validated learned-conviction model.
+
+The report includes aggregate metrics, monthly summaries, input hashes, limits,
+and portable replay commands. Datasets, fitted input artifacts, and individual
+forecast records are not included. See the [resume wording](report/oos-2026-10-14/RESUME.md)
+for claims scoped to this evidence.
+
 ## Model definition
 
 The base tensor estimates `P(S_t | S_(t-2), S_(t-1))` from counts of labeled
